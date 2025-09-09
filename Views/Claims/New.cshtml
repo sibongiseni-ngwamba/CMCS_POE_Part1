@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "New Claim";
+}
+
+<h2>New Claim</h2>
+<div class="claim-editor">
+
+    <!-- Status Banner -->
+    <div class="status-banner draft">Status: Draft</div>
+
+    <!-- Claim Header -->
+    <section class="claim-section">
+        <h3>Claim Header</h3>
+        <label>Period</label>
+        <input type="month" />
+
+        <label>Module</label>
+        <input type="text" placeholder="Module Name" />
+
+        <label>Hourly Rate</label>
+        <input id="hourlyRate" type="number" value="400" />
+    </section>
+
+    <!-- Line Items -->
+    <section class="claim-section">
+        <h3>Line Items</h3>
+        <table class="sample-table" id="lineItems">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Hours</th>
+                    <th>Rate</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="date" /></td>
+                    <td><input type="number" value="2" class="hours" /></td>
+                    <td class="rate">400</td>
+                    <td class="row-total">800</td>
+                </tr>
+                <tr>
+                    <td><input type="date" /></td>
+                    <td><input type="number" value="3" class="hours" /></td>
+                    <td class="rate">400</td>
+                    <td class="row-total">1200</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Grand Total: <span id="grandTotal">2000</span></strong></p>
+    </section>
+
+    <!-- Attachments -->
+    <section class="claim-section">
+        <h3>Attachments</h3>
+        <input type="file" />
+    </section>
+
+    <!-- Actions -->
+    <div class="actions">
+        <a class="pill" href="@Url.Action("Index", "Claims")">Save Draft</a>
+        <a class="pill" href="@Url.Action("Index", "Claims")">Submit Claim</a>
+    </div>
+</div>
+
+<script>
+    function recalcTotals() {
+        let hourlyRate = parseFloat(document.getElementById("hourlyRate").value);
+        let rows = document.querySelectorAll("#lineItems tbody tr");
+        let grand = 0;
+        rows.forEach(row => {
+            let hours = parseFloat(row.querySelector(".hours").value) || 0;
+            let total = hours * hourlyRate;
+            row.querySelector(".row-total").textContent = total;
+            row.querySelector(".rate").textContent = hourlyRate;
+            grand += total;
+        });
+        document.getElementById("grandTotal").textContent = grand;
+    }
+    document.querySelectorAll(".hours, #hourlyRate").forEach(el => {
+        el.addEventListener("input", recalcTotals);
+    });
+
+        <div class="form-group">
+        <label for="supportDocs">Supporting Documents</label>
+        <input type="file" id="supportDocs" class="form-control" multiple onchange="showFiles()">
+        <ul id="fileList"></ul>
+    </div>
+
+    <script>
+        function showFiles() {
+            const list = document.getElementById("fileList");
+            list.innerHTML = "";
+            const files = document.getElementById("supportDocs").files;
+            for (let i = 0; i < files.length; i++) {
+                let li = document.createElement("li");
+                li.textContent = files[i].name;
+                list.appendChild(li);
+            }
+        }
+</script>
+
+</script>

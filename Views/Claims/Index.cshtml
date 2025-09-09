@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Claims Review Queue";
+}
+
+<h2>Claims Review Queue</h2>
+
+<!-- Filters -->
+<div class="filters">
+    <label>Period</label>
+    <select>
+        <option>2025-09</option>
+        <option>2025-08</option>
+    </select>
+
+    <label>Lecturer</label>
+    <select>
+        <option>All</option>
+        <option>John Smith</option>
+        <option>Mary Johnson</option>
+    </select>
+
+    <label>Status</label>
+    <select>
+        <option>All</option>
+        <option>Pending</option>
+        <option>Pre-Approved</option>
+        <option>Approved</option>
+    </select>
+</div>
+
+<!-- Review Table -->
+<table class="sample-table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer</th>
+            <th>Period</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>5001</td>
+            <td>John Smith</td>
+            <td>2025-09</td>
+            <td>R 4,800</td>
+            <td><span class="badge pending">Pending</span></td>
+            <td><a class="pill" href="#">Review</a></td>
+        </tr>
+        <tr>
+            <td>5002</td>
+            <td>Mary Johnson</td>
+            <td>2025-09</td>
+            <td>R 6,400</td>
+            <td><span class="badge pre">Pre-Approved</span></td>
+            <td><a class="pill" href="#">Review</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Detail Pane (Mock) -->
+<div class="detail-pane">
+    <h3>Claim #5001 — John Smith</h3>
+    <p>Period: 2025-09</p>
+    <p>Total Hours: 12 at R400/hr = R4,800</p>
+    <p>Status: Pending</p>
+    <div class="actions">
+        <a class="pill" href="#">Approve</a>
+        <a class="pill" href="#">Reject</a>
+    </div>
+</div>
