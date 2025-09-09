@@ -1,22 +1,343 @@
-html {
-  font-size: 14px;
+/* ================================================
+   Global Colors (Red + Gray Theme)
+   ================================================ */
+:root {
+    --bg-1: #1b1b1d; /* dark gray background */
+    --bg-2: #252528; /* lighter gray background */
+    --accent: #e63946; /* bright red */
+    --accent-2: #ff6b6b; /* soft coral red */
+    --text: #f9f9f9; /* near white */
+    --muted: #bbbbbb; /* muted gray */
+    --card: #2e2e31; /* card background */
+    --border: #3b3b3f; /* subtle border */
+    --shadow: 0 10px 30px rgba(0,0,0,.45);
+    --radius: 16px;
+    --radius-lg: 22px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+* {
+    box-sizing: border-box;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+html, body {
+    height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    font-family: "Outfit", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg-1);
 }
+
+/* ================================================
+   Navbar
+   ================================================ */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    position: sticky;
+    top: 0;
+    background: rgba(30,30,32,.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: .3px;
+    color: var(--accent);
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+    .nav-links a:hover {
+        color: var(--text);
+        background: rgba(255,255,255,.06);
+    }
+
+    .nav-links a.active {
+        color: var(--text);
+        background: rgba(230,57,70,.25);
+    }
+
+.nav-right .pill {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--text);
+}
+
+    .nav-right .pill:hover {
+        border-color: var(--accent);
+    }
+
+/* ================================================
+   Containers
+   ================================================ */
+.container {
+    width: min(1100px, 92%);
+    margin: 36px auto 80px;
+}
+
+/* ================================================
+   Auth Pages
+   ================================================ */
+.auth-center {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 40px 16px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+}
+
+.auth-card {
+    width: min(520px, 92%);
+}
+
+.title {
+    margin: 0 0 8px;
+    font-weight: 700;
+}
+
+.muted {
+    color: var(--muted);
+    margin: 0 0 18px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+    .form label {
+        font-size: .9rem;
+        color: var(--muted);
+    }
+
+    .form input, .form select {
+        background: #1f1f21;
+        color: var(--text);
+        border: 1px solid var(--border);
+        padding: 12px 14px;
+        border-radius: 12px;
+        outline: none;
+    }
+
+        .form input:focus, .form select:focus {
+            border-color: var(--accent);
+        }
+
+.password-row {
+    display: flex;
+    gap: 8px;
+}
+
+    .password-row input {
+        flex: 1;
+    }
+
+.ghost-btn {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    padding: 0 12px;
+    border-radius: 10px;
+}
+
+.primary {
+    margin-top: 10px;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    color: #fff;
+    font-weight: 700;
+    border: 0;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+    .primary:hover {
+        filter: brightness(1.15);
+    }
+
+.small-row {
+    margin-top: 8px;
+    display: flex;
+    gap: 6px;
+    font-size: .95rem;
+    align-items: center;
+}
+
+.muted-link {
+    color: var(--muted);
+    text-decoration: underline dotted;
+}
+
+/* ================================================
+   Home / Role Cards
+   ================================================ */
+.hero {
+    text-align: center;
+    padding: 18px 0 26px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.role-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow);
+}
+
+.actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pill {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+    .pill:hover {
+        border-color: var(--accent);
+    }
+
+/* ================================================
+   Tables (Sample Data Pages)
+   ================================================ */
+.sample-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+    .sample-table th, .sample-table td {
+        padding: 12px 14px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sample-table th {
+        background: var(--bg-2);
+        color: var(--accent);
+    }
+
+    .sample-table tr:hover td {
+        background: rgba(255,255,255,.05);
+    }
+/* Claim Editor */
+.claim-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.claim-section {
+    background: var(--card);
+    padding: 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.status-banner {
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+    .status-banner.draft {
+        background: rgba(255,107,107,.2);
+        color: var(--accent);
+    }
+
+/* Filters */
+.filters {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    align-items: center;
+}
+
+    .filters label {
+        color: var(--muted);
+    }
+
+/* Badges */
+.badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+    .badge.pending {
+        background: rgba(255,193,7,.2);
+        color: #ffc107;
+    }
+
+    .badge.pre {
+        background: rgba(0,123,255,.2);
+        color: #007bff;
+    }
+
+    .badge.approved {
+        background: rgba(40,167,69,.2);
+        color: #28a745;
+    }
+
+/* Detail Pane */
+.detail-pane {
+    margin-top: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: var(--radius);
+}
+/* Highlight New Claim button */
+.primary {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    font-weight: 700;
+    color: #fff;
+}
+
+    .primary:hover {
+        filter: brightness(1.15);
+        transform: scale(1.03);
+        transition: all 0.2s ease-in-out;
+    }
