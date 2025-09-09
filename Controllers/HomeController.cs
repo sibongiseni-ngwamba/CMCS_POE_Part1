@@ -6,27 +6,11 @@ namespace CMCS_POE_Part1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        // GET: /Home/Home
+        public IActionResult Home()
         {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
+            ViewBag.Message = "Welcome to the Contract Monthly Claim System (Prototype)";
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

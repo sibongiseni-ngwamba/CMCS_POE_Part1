@@ -2,8 +2,9 @@
 
 namespace CMCS_POE_Part1.Controllers
 {
-    public class TaskController : Controller
+    public class TrackController : Controller
     {
+        // GET: /Track
         public IActionResult Index()
         {
             return View();
