@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Pre-Approve";
+}
+
+<h2>Pre-Approve (Coordinator)</h2>
+<p>Sample list of claims awaiting coordinator pre-approval:</p>
+
+<table class="sample-table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer</th>
+            <th>Hours Worked</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2001</td>
+            <td>Sarah Lee</td>
+            <td>15</td>
+            <td>Pending</td>
+        </tr>
+        <tr>
+            <td>2002</td>
+            <td>Michael Green</td>
+            <td>22</td>
+            <td>Pending</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><a class="pill" href="@Url.Action("Home", "Home")">Back to Home</a></p>

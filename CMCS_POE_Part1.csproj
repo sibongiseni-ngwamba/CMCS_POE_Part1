@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Approval\" />
     <Folder Include="Views\Claims\" />
   </ItemGroup>
 
