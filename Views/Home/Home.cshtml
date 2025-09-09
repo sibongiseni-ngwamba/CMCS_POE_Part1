@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero">
+    <h1>@ViewBag.Message</h1>
+    <p class="muted">
+        The Contract Monthly Claim System (CMCS) simplifies how lecturers submit claims,
+        and how coordinators and managers review them.
+    </p>
+</section>
+
+<section class="grid">
+    <!-- Lecturers Card -->
+    <article class="role-card">
+        <h3>Lecturers</h3>
+        <p>
+            Lecturers can capture their monthly claims based on hours worked and hourly
+            rates. Supporting documents can be uploaded to validate submissions.
+        </p>
+        <div class="actions">
+            <!-- NEW CLAIM button -->
+            <a class="pill primary" href="@Url.Action("New", "Claims")">➕ New Claim</a>
+            <a class="pill" href="@Url.Action("Index", "Claims")">View Claims</a>
+            <a class="pill" href="@Url.Action("Index", "Track")">Track Claim</a>
+        </div>
+    </article>
+
+    <!-- Coordinator Card -->
+    <article class="role-card">
+        <h3>Program Coordinator</h3>
+        <p>
+            Coordinators verify lecturer claims for accuracy and pre-approve them before
+            escalation. They act as the first line of review in the approval process.
+        </p>
+        <div class="actions">
+            <a class="pill" href="@Url.Action("PreApprove", "Approval")">Pre-Approve</a>
+        </div>
+    </article>
+
+    <!-- Manager Card -->
+    <article class="role-card">
+        <h3>Program Manager</h3>
+        <p>
+            Managers make the final decision to approve or reject claims, ensuring
+            compliance with institutional policies and fairness across submissions.
+        </p>
+        <div class="actions">
+            <a class="pill" href="@Url.Action("Approve", "Approval")">Approve</a>
+        </div>
+    </article>
+
+    <!-- Help Card -->
+    <article class="role-card">
+        <h3>Help & Information</h3>
+        <p>
+            This section explains how claims move through the system — from submission,
+            to coordinator review, to manager approval. It guides new users step by step.
+        </p>
+        <div class="actions">
+            <a class="pill" href="@Url.Action("Index", "Track")">Learn More</a>
+        </div>
+    </article>
+</section>
