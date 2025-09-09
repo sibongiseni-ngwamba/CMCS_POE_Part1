@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    ViewData["Title"] = "Sign in";
+}
+
+<section class="card auth-card">
+    <h1 class="title">Welcome back</h1>
+    <p class="muted">Sign in with your email and role to continue.</p>
+
+    <form method="post" action="@Url.Action("SignIn","Account")" class="form">
+        <label>Email (username)</label>
+        <input type="email" name="username" placeholder="your@email.com" />
+
+        <label>Password</label>
+        <div class="password-row">
+            <input type="password" name="password" placeholder="Your password" />
+            <button type="button" class="ghost-btn" onclick="togglePw(this)">Show</button>
+        </div>
+
+        <label>Role</label>
+        <select name="role">
+            <option>Lecturer</option>
+            <option>Program Coordinator</option>
+            <option>Program Manager</option>
+        </select>
+
+        <button type="submit" class="primary">Sign in</button>
+
+        <div class="small-row">
+            <a href="#" class="muted-link">Forgot password?</a>
+        </div>
+
+        <div class="small-row">
+            <span>Don't have an account?</span>
+            <a href="@Url.Action("Register", "Account")">Register</a>
+        </div>
+    </form>
+</section>
+
+<script>
+    function togglePw(btn){
+        const input = btn.parentElement.querySelector('input');
+        input.type = input.type === 'password' ? 'text' : 'password';
+        btn.textContent = input.type === 'password' ? 'Show' : 'Hide';
+    }
+</script>

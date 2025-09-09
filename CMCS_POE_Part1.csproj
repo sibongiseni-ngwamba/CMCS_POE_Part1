@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Approval\" />
+    <Folder Include="Views\Claims\" />
+    <Folder Include="Views\Task\" />
+  </ItemGroup>
+
 </Project>
